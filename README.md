@@ -1,5 +1,7 @@
 # Fashionista - Modern Fashion Store
 
+> **Note:** This app was built solely by AI and is for demonstration purposes only. Not intended for production use.
+
 Fashionista is a modern, visually stunning fashion store web application built with Express.js, HTML, and CSS. It features a beautiful landing page, product catalog, shopping cart functionality, and a responsive, mobile-friendly design. This project is ideal for learning full-stack web development and e-commerce best practices.
 
 ---
