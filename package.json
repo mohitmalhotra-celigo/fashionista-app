@@ -68,6 +68,8 @@
     "coverageDirectory": "coverage",
     "collectCoverageFrom": [
       "server/**/*.ts"
-    ]
+    ],
+    "testMatch": ["<rootDir>/tests/**/*.ts"],
+    "testPathIgnorePatterns": ["<rootDir>/dist/"]
   }
 }
