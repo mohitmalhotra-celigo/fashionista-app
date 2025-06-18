@@ -1,0 +1,244 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f8fa;
+  color: #222;
+}
+.announcement-bar {
+  background: linear-gradient(90deg, #e75480 0%, #f8bfae 100%);
+  color: #fff;
+  text-align: center;
+  padding: 0.7rem 0;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(231,84,128,0.04);
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e75480;
+  letter-spacing: 2px;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: #e75480;
+}
+.hero {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.hero-overlay {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 2px;
+}
+.hero-tagline {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+}
+.hero-subtext {
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  color: #f8f8fa;
+  opacity: 0.95;
+}
+.cta-btn {
+  background: #e75480;
+  color: #fff;
+  padding: 0.9rem 2.2rem;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(231,84,128,0.12);
+  transition: background 0.2s;
+  text-decoration: none;
+}
+.cta-btn:hover {
+  background: #c13c6a;
+}
+.featured-collection {
+  text-align: center;
+  margin: 2.5rem 0 1.5rem 0;
+}
+.featured-img {
+  width: 90%;
+  max-width: 700px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(231,84,128,0.08);
+}
+.brands {
+  background: #fff;
+  padding: 2.5rem 0 2rem 0;
+  text-align: center;
+}
+.brands h2 {
+  color: #e75480;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+.brand-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.brand-logos img {
+  height: 38px;
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.brand-logos img:hover {
+  filter: none;
+  opacity: 1;
+}
+.testimonials {
+  background: #f8f8fa;
+  padding: 3rem 1rem 2.5rem 1rem;
+  text-align: center;
+}
+.testimonials h2 {
+  color: #e75480;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+.testimonial-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.testimonial {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(231,84,128,0.08);
+  padding: 1.5rem 1.2rem;
+  max-width: 320px;
+  min-width: 220px;
+  margin: 0.5rem;
+  font-style: italic;
+  color: #444;
+  position: relative;
+}
+.testimonial span {
+  display: block;
+  margin-top: 1rem;
+  color: #e75480;
+  font-weight: 600;
+  font-style: normal;
+}
+.footer-modern {
+  background: #fff;
+  border-top: 1px solid #f8bfae;
+  padding: 2.5rem 1rem 1rem 1rem;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 1.2rem auto;
+  gap: 1.5rem;
+}
+.footer-logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #e75480;
+  letter-spacing: 2px;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a {
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #e75480;
+}
+.footer-social {
+  display: flex;
+  gap: 1.2rem;
+}
+.footer-social img {
+  width: 28px;
+  height: 28px;
+  filter: grayscale(1) brightness(0.7);
+  opacity: 0.8;
+  transition: filter 0.2s, opacity 0.2s;
+}
+.footer-social img:hover {
+  filter: none;
+  opacity: 1;
+}
+.footer-copy {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .brand-logos {
+    gap: 1.2rem;
+  }
+  .testimonial-list {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+} 

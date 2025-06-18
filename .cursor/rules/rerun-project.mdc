@@ -1,0 +1,6 @@
+---
+description: Rerun the container
+globs: 
+alwaysApply: false
+---
+Re run the podman container after any code change
