@@ -1,24 +1,18 @@
 # Use official Node.js LTS image
-FROM node:18-alpine
+FROM node:18-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
-
-# Set environment variable to skip Husky installation
-ENV HUSKY_SKIP_INSTALL=1
-ENV NODE_ENV=production
-
-# Install only production dependencies
-RUN npm ci --only=production
-
-# Copy the rest of the app
+RUN npm ci
 COPY . .
+RUN npm run build
 
-# Expose the app port
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/public ./public
+RUN npm ci --omit=dev
 EXPOSE 3000
-
-# Start the app
-CMD ["npm", "start"] 
+CMD ["node", "dist/server/index.js"] 

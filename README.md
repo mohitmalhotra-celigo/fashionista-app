@@ -27,12 +27,6 @@ Fashionista is a modern, visually stunning fashion store web application built w
 - Jest, Supertest (testing)
 - ESLint, Prettier, Husky
 
-## 📸 Screenshots
-
-![Landing Page](./screenshots/landing.png)
-![Products Page](./screenshots/products.png)
-![Cart Page](./screenshots/cart.png)
-
 ## 🏁 Getting Started
 
 ### Local Development
