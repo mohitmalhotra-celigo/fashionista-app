@@ -1,3 +1,4 @@
+/* global document, localStorage, alert */
 // Cart functionality for both product page and cart page
 function renderCart() {
   const cartList = document.getElementById('cart-list');
