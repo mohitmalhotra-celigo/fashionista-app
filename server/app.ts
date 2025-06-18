@@ -1,34 +1,38 @@
-require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const helmet = require('helmet');
-const cors = require('cors');
-const logger = require('./logger');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJsdoc = require('swagger-jsdoc');
+import express, { Application, Request, Response, NextFunction } from 'express';
+import path from 'path';
+import helmet from 'helmet';
+import cors from 'cors';
+import logger from './logger';
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
+import dotenv from 'dotenv';
 
-const app = express();
+dotenv.config();
+
+const app: Application = express();
 
 // Security headers with CSP for Unsplash
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      "img-src": [
-        "'self'",
-        'data:',
-        'https://images.unsplash.com',
-        'https://upload.wikimedia.org'
-      ],
-      "script-src": ["'self'"],
-      "style-src": ["'self'", "'unsafe-inline'"],
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "img-src": [
+          "'self'",
+          'data:',
+          'https://images.unsplash.com',
+          'https://upload.wikimedia.org',
+        ],
+        "script-src": ["'self'"],
+        "style-src": ["'self'", "'unsafe-inline'"],
+      },
     },
-  },
-}));
+  })
+);
 app.use(cors());
 
 // Logging
-app.use((req, res, next) => {
+app.use((req: Request, _res: Response, next: NextFunction) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
@@ -42,7 +46,7 @@ const swaggerSpec = swaggerJsdoc({
     openapi: '3.0.0',
     info: { title: 'Fashionista API', version: '1.0.0' },
   },
-  apis: [path.join(__dirname, 'app.js')],
+  apis: [path.join(__dirname, 'app.ts')],
 });
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
@@ -62,31 +66,31 @@ app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
  *                 version:
  *                   type: string
  */
-app.get('/version', (req, res) => {
+app.get('/version', (_req: Request, res: Response) => {
   res.json({ version: process.env.npm_package_version || '1.0.0' });
 });
 
 // Landing page (not in Swagger)
-app.get('/', (req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 // Products page (not in Swagger)
-app.get('/products', (req, res) => {
+app.get('/products', (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public', 'products.html'));
 });
 // Contact page (not in Swagger)
-app.get('/contact', (req, res) => {
+app.get('/contact', (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public', 'contact.html'));
 });
 // Cart page (not in Swagger)
-app.get('/cart', (req, res) => {
+app.get('/cart', (_req: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public', 'cart.html'));
 });
 
 // Centralized error handler
-app.use((err, req, res) => {
-  logger.error(err.stack);
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+  logger.error(err.stack || err.message);
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-module.exports = app; 
+export default app; 

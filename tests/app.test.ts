@@ -1,5 +1,5 @@
-const request = require('supertest');
-const app = require('../server/app');
+import request from 'supertest';
+import app from '../server/app';
 
 describe('GET /version', () => {
   it('should return app version', async () => {
